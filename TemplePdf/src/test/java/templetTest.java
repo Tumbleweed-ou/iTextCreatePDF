@@ -1,10 +1,9 @@
 import com.itextpdf.text.DocumentException;
-import utils.PDFTempletContract;
+import utils.CreateContract;
 import vo.BulidingRoomVo;
 import vo.RentContarctVo;
 import vo.WuYeHandoverBillVo;
 
-import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -22,7 +21,7 @@ public class templetTest {
 
     public static void main(String[] args) throws IOException, DocumentException {
 
-        PDFTempletContract temp = new PDFTempletContract();
+        CreateContract temp = new CreateContract();
         RentContarctVo vo = null;
         try {
             vo= test();
@@ -30,8 +29,10 @@ public class templetTest {
             e.printStackTrace();
         }
 
-        File file = new File("F:\\石岩-线下公司租赁合同.pdf");
-        temp.CreateTemplePdf(vo,file);
+
+        String path = "F:\\石岩-线下公司租赁合同.pdf";
+        CreateContract createContract = new CreateContract();
+        createContract.fillAndSign(vo,path);
 
 
     }
