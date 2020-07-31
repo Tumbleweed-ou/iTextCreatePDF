@@ -4,7 +4,7 @@ package utils;
  * @author shkstart
  * @create 2020-07-21 17:35
  */
-public class NumUpperUtils {
+public class NumUpperUtil {
 
     public String numUpper(String input){
         String s1 = "零壹贰叁肆伍陆柒捌玖";

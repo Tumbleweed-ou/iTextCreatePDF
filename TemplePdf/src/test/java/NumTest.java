@@ -1,4 +1,4 @@
-import utils.NumUpperUtils;
+import utils.NumUpperUtil;
 
 import java.math.BigDecimal;
 
@@ -10,7 +10,7 @@ public class NumTest {
 
     public static void main(String[] args) {
 
-        NumUpperUtils numUpperUtils = new NumUpperUtils();
+        NumUpperUtil numUpperUtils = new NumUpperUtil();
 
         /**************** 测试金额人民币大写转换begin ******************************/
        // numUpperUtils.numUpper("15866.36");

@@ -1,4 +1,4 @@
-import utils.DateSwitchUtils;
+import utils.DateSwitchUtil;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,7 +13,7 @@ public class DateTest {
 
 
     public static void main(String[] args) throws ParseException {
-        DateSwitchUtils d = new DateSwitchUtils();
+        DateSwitchUtil d = new DateSwitchUtil();
 
         Date date = new Date();
         System.out.println(date);

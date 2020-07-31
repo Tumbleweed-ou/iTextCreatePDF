@@ -29,9 +29,9 @@ public class PDFTempletContract {
         int yearIndex,monIndex,dayIndex;
 
         //时间大写格式转换
-        DateSwitchUtils dsu = new DateSwitchUtils();
+        DateSwitchUtil dsu = new DateSwitchUtil();
         //金额大写格式转换
-        NumUpperUtils nu = new NumUpperUtils();
+        NumUpperUtil nu = new NumUpperUtil();
         //创建一个pdf读取对象
         PdfReader reader = new PdfReader(templatePdfPath);
         //创建一个输出流

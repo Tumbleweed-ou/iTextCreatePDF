@@ -11,7 +11,7 @@ import java.util.Date;
  * @author ozw
  * @create 2020-07-21 14:22
  */
-public class DateSwitchUtils {
+public class DateSwitchUtil {
 
 
     /**
