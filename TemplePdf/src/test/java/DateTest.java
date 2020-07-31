@@ -16,7 +16,7 @@ public class DateTest {
         DateSwitchUtils d = new DateSwitchUtils();
 
         Date date = new Date();
-
+        System.out.println(date);
         System.out.println(d.DateUpper(date));
         System.out.println(d.DateAdd(date));
         System.out.println(d.DateLower(date));

@@ -22,8 +22,10 @@ public class DateSwitchUtils {
     public String DateUpper(Date date){
 
         LocalDateTime ldt = asLocalDate(date);
-        String dateStr = ldt.toString().substring(0,9);
-        String dateStrUpper = dataToUpper(dateStr);
+        String dateStr = ldt.toString();
+        int T_Index = dateStr.indexOf("T");
+        String cutStr = dateStr.substring(0,T_Index);
+        String dateStrUpper = dataToUpper(cutStr);
 
         return dateStrUpper;
     }
@@ -34,10 +36,13 @@ public class DateSwitchUtils {
      * @return
      */
     public String DateAdd(Date date){
+
         LocalDateTime localDateTime = asLocalDate(date);
         LocalDateTime AddDate = localDateTime.plusDays(30);
-        String dateAddAfter = AddDate.toString().substring(0,9);
-        String dateAddAfterUpper = dataToUpper(dateAddAfter);
+        String dateAddAfter = AddDate.toString();
+        int T_Index = dateAddAfter.indexOf("T");
+        String cutStr = dateAddAfter.substring(0,T_Index);
+        String dateAddAfterUpper = dataToUpper(cutStr);
 
         return dateAddAfterUpper;
     }
@@ -62,8 +67,10 @@ public class DateSwitchUtils {
      */
     public String DateLower(Date date){
         LocalDateTime ldt = asLocalDate(date);
-        String dateStr = ldt.toString().substring(0,9);
-        return dateStr;
+        String dateStr = ldt.toString();
+        int T_Index = dateStr.indexOf("T");
+        String cutStr = dateStr.substring(0,T_Index);
+        return cutStr;
     }
 
 

@@ -2,10 +2,9 @@ package utils;
 
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
-import com.itextpdf.text.pdf.AcroFields;
-import com.itextpdf.text.pdf.BaseFont;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.PdfStamper;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.*;
 import vo.RentContarctVo;
 import vo.WuYeHandoverBillVo;
 
@@ -75,21 +74,15 @@ public class PDFTempletContract {
         s.setField("endFirstMonRentDay",endFirstDate.substring(monIndex+1,dayIndex));
         s.setField("firstMonTotalDay","30");
         //设置金额
-        String money = null;
-        money=nu.numUpper(String.valueOf(rentContarctVo.getRent()));
-        s.setField("rentUpper",money);
+        s.setField("rentUpper",nu.numUpper(String.valueOf(rentContarctVo.getRent())));
         s.setField("rentLower", String.valueOf(rentContarctVo.getRent()));
-        money=nu.numUpper(String.valueOf(rentContarctVo.getServiceFee()));
-        s.setField("serviceFeeUpper",money);
+        s.setField("serviceFeeUpper",nu.numUpper(String.valueOf(rentContarctVo.getServiceFee())));
         s.setField("serviceFeeLower",String.valueOf(rentContarctVo.getServiceFee()));
-        money=nu.numUpper(String.valueOf(rentContarctVo.getFirstMonRent()));
-        s.setField("firstMonRentUpper",money);
+        s.setField("firstMonRentUpper",nu.numUpper(String.valueOf(rentContarctVo.getFirstMonRent())));
         s.setField("firstMonRentLower",String.valueOf(rentContarctVo.getFirstMonRent()));
-        money=nu.numUpper(String.valueOf(rentContarctVo.getFirstMonServiceFee()));
-        s.setField("firstMonServiceFeeUpper",money);
+        s.setField("firstMonServiceFeeUpper",nu.numUpper(String.valueOf(rentContarctVo.getFirstMonServiceFee())));
         s.setField("firstMonServiceFeeLower",String.valueOf(rentContarctVo.getFirstMonServiceFee()));
-        money=nu.numUpper(String.valueOf(rentContarctVo.getGuarantee()));
-        s.setField("guaranteeUpper",money);
+        s.setField("guaranteeUpper",nu.numUpper(String.valueOf(rentContarctVo.getGuarantee())));
         s.setField("guaranteeLower",String.valueOf(rentContarctVo.getGuarantee()));
         //设置签署日期
         String signDate = dsu.DateLower(rentContarctVo.getSignDate());
@@ -98,7 +91,7 @@ public class PDFTempletContract {
         s.setField("signDateDay",signDate.substring(8));
 
         //设置图片域
-       /* int pageNo;
+        int pageNo;
         Rectangle signRect;
         float x,y;
         Image image;
@@ -109,12 +102,9 @@ public class PDFTempletContract {
         signRect = s.getFieldPositions("ownerSignImg").get(0).position;
         x = signRect.getLeft();
         y = signRect.getBottom();
-        // 根据路径读取图片
-        image = Image.getInstance(rentContarctVo.getOwnerSignImg());
-        // 获取图片页面
-        under = ps.getOverContent(pageNo);
-        // 图片大小自适应
-        image.scaleToFit(signRect.getWidth(), signRect.getHeight());
+        image = Image.getInstance(rentContarctVo.getOwnerSignImg());// 根据路径读取图片
+        under = ps.getOverContent(pageNo);// 获取图片页面
+        image.scaleToFit(signRect.getWidth(), signRect.getHeight());// 图片大小自适应
         // 添加图片
         image.setAbsolutePosition(x, y);
         under.addImage(image);
@@ -124,16 +114,12 @@ public class PDFTempletContract {
         signRect = s.getFieldPositions("tenantSignImg").get(0).position;
         x = signRect.getLeft();
         y = signRect.getBottom();
-        // 根据路径读取图片
-        image = Image.getInstance(rentContarctVo.getTenantSignImg());
-        // 获取图片页面
-        under = ps.getOverContent(pageNo);
-        // 图片大小自适应
-        image.scaleToFit(signRect.getWidth(), signRect.getHeight());
+        image = Image.getInstance(rentContarctVo.getTenantSignImg());// 根据路径读取图片
+        under = ps.getOverContent(pageNo); // 获取图片页面
+        image.scaleToFit(signRect.getWidth(), signRect.getHeight());// 图片大小自适应
         // 添加图片
         image.setAbsolutePosition(x, y);
         under.addImage(image);
-*/
 
         //填充表格
         List<WuYeHandoverBillVo> wuYelist = rentContarctVo.getRoomVo().getBillVoList();

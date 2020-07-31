@@ -1,7 +1,5 @@
 package utils;
 
-import com.itextpdf.text.Image;
-import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfSignatureAppearance;
 import com.itextpdf.text.pdf.PdfStamper;
@@ -46,6 +44,7 @@ public class SignPdfUtils {
                PdfSignatureAppearance appearance = stamper.getSignatureAppearance();
                appearance.setReason(signatureVo.getReason());
                appearance.setLocation(signatureVo.getLocation());
+              // appearance.setAcro6Layers();
                //设置签名的签名域名称，多次追加签名的时候，签名预名称不能一样，图片大小受表单域大小影响（过小导致压缩）
                //appearance.setVisibleSignature(signatureVo.getFieldName());
                //读取图章图片
@@ -53,9 +52,9 @@ public class SignPdfUtils {
                //设置签名的位置，页码，签名域名称，多次追加签名的时候，签名预名称不能一样
                //签名的位置，是图章相对于pdf页面的位置坐标，原点为pdf页面左下角
                //四个参数的分别是，图章左下角x，图章左下角y，图章右上角x，图章右上角y
-               appearance.setVisibleSignature(new Rectangle(200, 130, 270, 200), 7, "d");
+               /*appearance.setVisibleSignature(new Rectangle(200, 130, 270, 200), 7, "d");
                Image image = Image.getInstance(signatureVo.getImagePath());
-               appearance.setSignatureGraphic(image);
+               appearance.setSignatureGraphic(image);*/
                appearance.setCertificationLevel(signatureVo.getCertificationLevel());
                //设置图章的显示方式，如下选择的是只显示图章（还有其他的模式，可以图章和签名描述一同显示）
                appearance.setRenderingMode(signatureVo.getRenderingMode());
@@ -112,7 +111,7 @@ public class SignPdfUtils {
             info.setDigestAlgorithm(DigestAlgorithms.SHA1);
             //info.setFieldName("ownerSignature");
             info.setImagePath(app.getClass().getResource("/img/onwerSignImg.JPG").getPath());
-            info.setRenderingMode(PdfSignatureAppearance.RenderingMode.GRAPHIC);
+            info.setRenderingMode(PdfSignatureAppearance.RenderingMode.DESCRIPTION);
 
             /*SignatureInfo info1 = new SignatureInfo();
             info1.setReason("理由1");

@@ -28,7 +28,7 @@ public class SignatureVo {
 
     private int certificationLevel = 0; //批准签章
 
-    private PdfSignatureAppearance.RenderingMode renderingMode;//表现形式：仅描述，仅图片，图片和描述，签章者和描述
+    private PdfSignatureAppearance.RenderingMode renderingMode ;//表现形式：仅描述，仅图片，图片和描述，签章者和描述
 
     private MakeSignature.CryptoStandard subfilter;//支持标准，CMS,CADES
 

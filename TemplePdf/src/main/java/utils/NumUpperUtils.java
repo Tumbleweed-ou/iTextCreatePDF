@@ -44,9 +44,9 @@ public class NumUpperUtils {
             unit = s4.substring(n1, n1 + 1);
             result = result.concat(num).concat(unit);
         }
-        /*if ((len == temp.length()) || (len == temp.length() - 1)) {
+        if ((len == temp.length()) || (len == temp.length() - 1)) {
             result = result.concat("整");
-        }*/
+        }
         if (len == temp.length() - 2) {
             result = result.concat("零分");
         }
@@ -108,10 +108,10 @@ public class NumUpperUtils {
         if (outmoney.charAt(yy - 1) == '零') {
             outmoney = outmoney.substring(0, yy - 1);
         }
-        /*yy = outmoney.length();
+        yy = outmoney.length();
         if (outmoney.charAt(yy - 1) == '元') {
             outmoney = outmoney + '整';
-        }*/
+        }
         //System.out.println(outmoney);
         return outmoney;
     }
